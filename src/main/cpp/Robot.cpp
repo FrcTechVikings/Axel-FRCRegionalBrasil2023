@@ -10,15 +10,45 @@ void Robot::RobotInit() {}
 
 void Robot::RobotPeriodic() {}
 
-void Robot::AutonomousInit() {}
+void Robot::AutonomousInit() {
 
-void Robot::AutonomousPeriodic() {}
+  // Inicializa o robô
+  RobotCommands.InitCommands();
 
-void Robot::TeleopInit() {}
+}
 
-void Robot::TeleopPeriodic() {}
+void Robot::AutonomousPeriodic() {
 
-void Robot::DisabledInit() {}
+  m_autoSelected = m_chooser.GetSelected();
+
+  // Inicializa o autônomo do robô
+  RobotCommands.InitAutoCommands();
+
+}
+
+void Robot::TeleopInit() {
+
+  // Inicializa o robô
+  RobotCommands.InitCommands();
+
+}
+
+void Robot::TeleopPeriodic() {
+
+  // Executa os diversos tipos de comandos do robô
+  RobotCommands.PeriodicCommands();
+  RobotCommands.PilotCommands();
+  RobotCommands.OperatorCommands();
+  RobotCommands.Log();
+
+}
+
+void Robot::DisabledInit() {
+
+  // Esse comando é executado aqui para resetar as variáveis do robô
+  RobotCommands.InitCommands();
+
+}
 
 void Robot::DisabledPeriodic() {}
 

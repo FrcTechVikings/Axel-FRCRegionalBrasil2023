@@ -5,7 +5,10 @@
 #pragma once
 
 #include <frc/TimedRobot.h>
+#include <string>
 #include <frc/smartdashboard/SendableChooser.h>
+
+#include "CommandGroup.h"
 
 class Robot : public frc::TimedRobot {
 
@@ -23,5 +26,10 @@ class Robot : public frc::TimedRobot {
     void TestPeriodic() override;
 
   private:
+
+    frc::SendableChooser<std::string> m_chooser;
+    std::string m_autoSelected;
+
+    CommandGroup RobotCommands;
 
 };
