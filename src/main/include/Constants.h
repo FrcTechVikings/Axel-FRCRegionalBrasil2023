@@ -11,7 +11,14 @@ namespace RobotConstants{
 
 namespace DriveTrainConstants {}
 
-namespace MotorsConstants {}
+namespace MotorsConstants {
+
+    const int rearLeftCIN = 0;
+    const int frontLeftCIN = 1;
+    const int rearRightCIN = 2;
+    const int frontRightCIN = 3;
+
+}
 
 namespace SensorsConstants{}
 
