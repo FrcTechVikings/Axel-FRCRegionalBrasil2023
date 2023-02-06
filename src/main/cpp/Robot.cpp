@@ -59,11 +59,11 @@ void Robot::TestPeriodic() {
 
   if(stickTeste.GetRawButtonPressed(JoystickConstants::buttonA)){
 
-      comp.Enabled();
+      comp.EnableDigital();
 
   }else if(stickTeste.GetRawButtonPressed(JoystickConstants::buttonB)){
 
-      comp.Enabled();
+      comp.Disable();
 
   }
 

@@ -14,6 +14,3 @@ class Pneumatics {
     private:
 
 };
-
-#include (pneumagico)
-1=static_assert
