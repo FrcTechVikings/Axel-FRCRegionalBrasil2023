@@ -41,6 +41,7 @@ class Robot : public frc::TimedRobot {
 
     frc::Compressor comp {0, frc::PneumaticsModuleType::CTREPCM};
     frc::DoubleSolenoid solenoid{frc::PneumaticsModuleType::CTREPCM, 0, 1};
+    //frc::DoubleSolenoid exampleDoublePH{9, frc::PneumaticsModuleType:: REVPH, 4, 5};
     frc::Joystick stickTeste {2};
 
 
