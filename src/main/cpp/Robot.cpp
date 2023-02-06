@@ -48,9 +48,40 @@ void Robot::DisabledInit() {
 
 void Robot::DisabledPeriodic() {}
 
-void Robot::TestInit() {}
+void Robot::TestInit() {
 
-void Robot::TestPeriodic() {}
+  solenoid.Set(frc::DoubleSolenoid::Value::kOff);
+  comp.Disable();
+
+}
+
+void Robot::TestPeriodic() {
+
+  if(stickTeste.GetRawButtonPressed(JoystickConstants::buttonA)){
+
+      comp.Enabled();
+
+  }else if(stickTeste.GetRawButtonPressed(JoystickConstants::buttonB)){
+
+      comp.Enabled();
+
+  }
+
+  if(stickTeste.GetRawButtonPressed(JoystickConstants::buttonX)){
+
+      solenoid.Set(frc::DoubleSolenoid::Value::kForward);
+
+  }else if(stickTeste.GetRawButtonPressed(JoystickConstants::buttonY)){
+
+      solenoid.Set(frc::DoubleSolenoid::Value::kReverse);
+
+  }else if(stickTeste.GetRawButtonPressed(JoystickConstants::buttonBACK)){
+
+      solenoid.Set(frc::DoubleSolenoid::Value::kOff);
+
+  }
+
+}
 
 #ifndef RUNNING_FRC_TESTS
 int main() {
