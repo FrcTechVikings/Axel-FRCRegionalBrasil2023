@@ -51,6 +51,7 @@ void Robot::DisabledPeriodic() {}
 void Robot::TestInit() {
 
   solenoid.Set(frc::DoubleSolenoid::Value::kOff);
+  //solenoid.Set(frc::DoubleSolenoid::Value::kForward);
   comp.Disable();
 
 }
@@ -70,10 +71,12 @@ void Robot::TestPeriodic() {
   if(stickTeste.GetRawButtonPressed(JoystickConstants::buttonX)){
 
       solenoid.Set(frc::DoubleSolenoid::Value::kForward);
+      //solenoid.Toggle();
 
   }else if(stickTeste.GetRawButtonPressed(JoystickConstants::buttonY)){
 
       solenoid.Set(frc::DoubleSolenoid::Value::kReverse);
+      //solenoid.Toggle();
 
   }else if(stickTeste.GetRawButtonPressed(JoystickConstants::buttonBACK)){
 
