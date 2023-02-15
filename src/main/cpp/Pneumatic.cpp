@@ -5,37 +5,25 @@ void Pneumatics::PneumaticLog(){}
 
 void Pneumatics::Init(){
 
-    solenoid.Set(frc::DoubleSolenoid::Value::kOff);
-    //solenoid.Set(frc::DoubleSolenoid::Value::kForward);
+    solenoid.Set(frc::DoubleSolenoid::Value::kForward);
     comp.Disable();
    
 }
 
-void Pneumatics::PneumaticFeed(){
-    if(stickTeste.GetRawButtonPressed(JoystickConstants::buttonA)){
+void Pneumatics::EnableCompressor(){
 
-      comp.EnableDigital();
+    comp.EnableDigital();
+     
+}
 
-  }else if(stickTeste.GetRawButtonPressed(JoystickConstants::buttonB)){
+void Pneumatics::DisableCompressor(){
 
-      comp.Disable();
+    comp.Disable();
+     
+}
 
-  }
+void Pneumatics::AtivaSolenoide(){
+   solenoid.Toggle(); //Troca o estado
 
-  if(stickTeste.GetRawButtonPressed(JoystickConstants::buttonX)){
-
-      solenoid.Set(frc::DoubleSolenoid::Value::kForward);
-      //solenoid.Toggle();
-
-  }else if(stickTeste.GetRawButtonPressed(JoystickConstants::buttonY)){
-
-      solenoid.Set(frc::DoubleSolenoid::Value::kReverse);
-      //solenoid.Toggle();
-
-  }else if(stickTeste.GetRawButtonPressed(JoystickConstants::buttonBACK)){
-
-      solenoid.Set(frc::DoubleSolenoid::Value::kOff);
-
-  }
 }
 

@@ -8,11 +8,6 @@
 #include <string>
 #include <frc/smartdashboard/SendableChooser.h>
 
-//Pneumático
-#include <frc/DoubleSolenoid.h>
-#include <frc/Compressor.h>
-#include <frc/Joystick.h>
-
 #include "CommandGroup.h"
 
 class Robot : public frc::TimedRobot {
@@ -36,13 +31,6 @@ class Robot : public frc::TimedRobot {
     std::string m_autoSelected;
 
     CommandGroup RobotCommands;
-
-    // Pneumático
-
-    frc::Compressor comp {0, frc::PneumaticsModuleType::CTREPCM};
-    frc::DoubleSolenoid solenoid{frc::PneumaticsModuleType::CTREPCM, 0, 1};
-    //frc::DoubleSolenoid exampleDoublePH{9, frc::PneumaticsModuleType:: REVPH, 4, 5};
-    frc::Joystick stickTeste {2};
 
 
 };

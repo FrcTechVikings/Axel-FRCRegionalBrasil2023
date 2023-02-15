@@ -3,6 +3,8 @@
 #include <frc/Joystick.h>
 #include "Constants.h"
 
+#include "Pneumatic.h"
+
 class CommandGroup {
 
     public:
@@ -13,6 +15,7 @@ class CommandGroup {
         void InitAutoCommands();
         void OneCargoAuto(double delaySeconds, double dist, double tarmacExitDist);
         void ExitTarmacAuto(double delaySeconds);
+        
         void InitCommands();
         void PeriodicCommands();
         void PilotCommands();
