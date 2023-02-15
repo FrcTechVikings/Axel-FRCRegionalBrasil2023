@@ -53,7 +53,8 @@ void Robot::TestInit() {
   solenoid.Set(frc::DoubleSolenoid::Value::kOff);
   //solenoid.Set(frc::DoubleSolenoid::Value::kForward);
   comp.Disable();
-
+   
+ 
 }
 
 void Robot::TestPeriodic() {
