@@ -13,6 +13,7 @@ void Robot::RobotPeriodic() {}
 void Robot::AutonomousInit() {
 
   RobotCommands.InitCommands();
+  RobotCommands.InitAutoCommands();
 
 }
 

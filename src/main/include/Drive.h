@@ -17,6 +17,7 @@ class Drivetrain {
 
         frc::MotorControllerGroup motorsRight{rearRight, frontRight};
         frc::MotorControllerGroup motorsLeft{rearLeft, rearRight};
+        
         frc::DifferentialDrive drivetrain{motorsLeft, motorsRight};
 
         void DriveLog();

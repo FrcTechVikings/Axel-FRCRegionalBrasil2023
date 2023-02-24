@@ -12,4 +12,14 @@ void Drivetrain::DriveSpeedStandard(){}
 
 void Drivetrain::DriveDirection(){}
 
-void Drivetrain::DriveInit(){}
+void Drivetrain::DriveInit(){
+    
+    rearLeft.SetNeutralMode(NeutralMode::Brake);
+    rearRight.SetNeutralMode(NeutralMode::Brake);
+    frontLeft.SetNeutralMode(NeutralMode::Coast);
+    frontRight.SetNeutralMode(NeutralMode::Coast);
+
+    drivetrain.SetSafetyEnabled(true);
+    drivetrain.SetExpiration(100_ms);
+
+}
