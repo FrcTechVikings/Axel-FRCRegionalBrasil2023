@@ -3,8 +3,6 @@
 #include "Constants.h"
 #include <frc/DoubleSolenoid.h>
 #include <frc/Compressor.h>
-#include "CommandGroup.h"
-
 
 class Pneumatics {
 
