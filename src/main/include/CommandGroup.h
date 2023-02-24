@@ -3,7 +3,9 @@
 #include <frc/Joystick.h>
 #include "Constants.h"
 
+//Sistemas do robô
 #include "Pneumatic.h"
+#include "Drive.h"
 
 class CommandGroup {
 
@@ -12,10 +14,10 @@ class CommandGroup {
         frc::Joystick pilotStick {0};
         frc::Joystick operatorStick {1};
 
+        Pneumatics RobotPneumatic;
+        Drivetrain RobotDrive;
+
         void InitAutoCommands();
-        void OneCargoAuto(double delaySeconds, double dist, double tarmacExitDist);
-        void ExitTarmacAuto(double delaySeconds);
-        
         void InitCommands();
         void PeriodicCommands();
         void PilotCommands();
@@ -25,5 +27,6 @@ class CommandGroup {
     private:
 
         bool safeLock = 1;
+        bool estadoCompressor = 0;
 
 };

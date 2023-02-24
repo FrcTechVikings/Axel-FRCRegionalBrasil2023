@@ -23,7 +23,8 @@ void Pneumatics::DisableCompressor(){
 }
 
 void Pneumatics::AtivaSolenoide(){
-   solenoid.Toggle(); //Troca o estado
 
+   solenoid.Toggle(); //Troca o estado
+   
 }
 
