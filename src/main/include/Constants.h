@@ -17,7 +17,9 @@ namespace MotorsConstants {
     const int frontLeftCIN = 1;
     const int rearRightCIN = 2;
     const int frontRightCIN = 3;
-    const int clawSnowBlower = 4;
+    const int leftClawSnowBlower = 4;
+    const int rightClawSnowBlower = 5;
+    const int clawRedLine = 6;
 
 }
 
