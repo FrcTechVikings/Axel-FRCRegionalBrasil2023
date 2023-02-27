@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Constants.h"
+#include <frc/smartdashboard/SendableChooser.h>
 #include <frc/DoubleSolenoid.h>
 #include <frc/Compressor.h>
 

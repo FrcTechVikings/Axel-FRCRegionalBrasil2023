@@ -6,13 +6,17 @@
 #include <fmt/core.h>
 #include <frc/smartdashboard/SmartDashboard.h>
 
-void Robot::RobotInit() {}
+void Robot::RobotInit() {
+
+  RobotCommands.InitCommands();
+
+}
 
 void Robot::RobotPeriodic() {}
 
 void Robot::AutonomousInit() {
 
-  RobotCommands.InitCommands();
+  //RobotCommands.InitCommands();
   RobotCommands.InitAutoCommands();
 
 }
@@ -49,13 +53,9 @@ void Robot::DisabledInit() {
 
 void Robot::DisabledPeriodic() {}
 
-void Robot::TestInit() {
- 
-}
+void Robot::TestInit() {}
 
-void Robot::TestPeriodic() {
-
-}
+void Robot::TestPeriodic() {}
 
 #ifndef RUNNING_FRC_TESTS
 int main() {
