@@ -12,7 +12,11 @@ void CommandGroup::InitCommands(){
 
 }
 
-void CommandGroup::PeriodicCommands(){} //a cada segundo
+void CommandGroup::PeriodicCommands(){                                   
+
+    RobotDrive.Drive(pilotStick.GetY(), pilotStick.GetZ(), safeLock);
+
+} 
 
 void CommandGroup::PilotCommands(){
 
@@ -20,6 +24,34 @@ void CommandGroup::PilotCommands(){
         
         safeLock = !safeLock;
         
+    }
+
+    if(pilotStick.GetRawButtonPressed(JoystickConstants::buttonRB)){
+
+        RobotDrive.DriveSpeedChange(1, 0.1);
+    }
+
+    if(pilotStick.GetRawButtonPressed(JoystickConstants::buttonLB)){
+
+        RobotDrive.DriveSpeedChange(-1, 0.1);
+
+    }
+
+    if(pilotStick.GetRawButtonPressed(JoystickConstants::buttonRT)){
+
+        RobotDrive.DriveSpeedMax();
+    }
+
+    if(pilotStick.GetRawButtonPressed(JoystickConstants::buttonLB)){
+
+        RobotDrive.DriveSpeedStandard();
+
+    }
+
+    if(pilotStick.GetRawButtonPressed(JoystickConstants::buttonY)){
+
+        RobotDrive.DriveDirection();
+
     }
 
 }

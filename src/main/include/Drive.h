@@ -22,7 +22,7 @@ class Drivetrain {
 
         void DriveLog();
         void Drive(double yAxis, double zAxis, bool lock);
-        void DriveSpeed(int proportion, double gain);
+        void DriveSpeedChange(int proportion, double gain);
         void DriveSpeedMax();
         void DriveSpeedStandard();
         void DriveDirection();
@@ -35,5 +35,7 @@ class Drivetrain {
         double yAxisJoy = 0.0;
         double zAxisJoy = 0.0;
         int direction = 1;
+        double percentSpeed = DriveTrainConstants::standardPercentSpeed;
+        double percentRotation = DriveTrainConstants::standardPercentRotation;
         
 };

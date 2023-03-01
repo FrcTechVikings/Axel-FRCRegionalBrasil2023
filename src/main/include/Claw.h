@@ -2,7 +2,7 @@
 
 #include "ctre/Phoenix.h"
 #include "Constants.h"
-#include <frc/smartdashboard/SendableChooser.h>
+#include <frc/smartdashboard/SmartDashboard.h>  
 
 class Claw {
 
@@ -13,7 +13,7 @@ class Claw {
         WPI_VictorSPX ClawRedLine = {MotorsConstants::clawRedLine};
 
         void ClawLog();
-        void ClawFeed();
+        void ClawFeed(bool lock, double percent);
         void ClawInit();
 
     private:

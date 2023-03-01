@@ -9,7 +9,16 @@ namespace RobotConstants{
 
 }
 
-namespace DriveTrainConstants {}
+namespace DriveTrainConstants {
+
+    const double maxSpeedPercentConstrain = 1.0;
+    const double minSpeedPercentConstrain = 0.2;
+    const double maxRotationPercentConstrain = 0.85;
+    const double minRotationPercentConstrain = 0.05;
+    const double standardPercentSpeed = 0.6;
+    const double standardPercentRotation = 0.45;
+    
+}
 
 namespace MotorsConstants {
 
