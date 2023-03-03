@@ -2,21 +2,22 @@
 
 void Claw::ClawLog(){}
 
-void Claw::ClawFeed(bool lock, double percent){}
+void Claw::ClawSlide(bool lock, double percent){
+
+    ClawSlowLeft.Set(ControlMode::PercentOutput, -1*percent*lock);
+    ClawSlowRight.Set(ControlMode::PercentOutput, percent*lock);
+
+}
 
 void Claw::ClawInit(){
 
-    ClawSlonRight.SetNeutralMode(NeutralMode::Brake);
+    ClawSlowRight.SetNeutralMode(NeutralMode::Brake);
     ClawSlowLeft.SetNeutralMode(NeutralMode::Brake);
-    ClawRedLine.SetNeutralMode(NeutralMode::Brake);
 
-    ClawSlonRight.SetSafetyEnabled(true);
-    ClawSlonRight.SetExpiration(100_ms);
+    ClawSlowRight.SetSafetyEnabled(true);
+    ClawSlowRight.SetExpiration(100_ms);
 
     ClawSlowLeft.SetSafetyEnabled(true);
     ClawSlowLeft.SetExpiration(100_ms);
-
-    ClawRedLine.SetSafetyEnabled(true);
-    ClawRedLine.SetExpiration(100_ms);
 
 }

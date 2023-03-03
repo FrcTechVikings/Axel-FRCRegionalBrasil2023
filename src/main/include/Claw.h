@@ -9,11 +9,10 @@ class Claw {
     public:
 
         WPI_VictorSPX ClawSlowLeft = {MotorsConstants::leftClawSnowBlower};
-        WPI_VictorSPX ClawSlonRight = {MotorsConstants::rightClawSnowBlower};
-        WPI_VictorSPX ClawRedLine = {MotorsConstants::clawRedLine};
+        WPI_VictorSPX ClawSlowRight = {MotorsConstants::rightClawSnowBlower};
 
         void ClawLog();
-        void ClawFeed(bool lock, double percent);
+        void ClawSlide(bool lock, double percent);
         void ClawInit();
 
     private:

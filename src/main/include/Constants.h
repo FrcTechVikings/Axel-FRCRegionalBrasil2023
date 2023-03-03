@@ -28,11 +28,15 @@ namespace MotorsConstants {
     const int frontRightCIN = 3;
     const int leftClawSnowBlower = 4;
     const int rightClawSnowBlower = 5;
-    const int clawRedLine = 6;
+    const int armRedLine = 6;
 
 }
 
-namespace SensorsConstants{}
+namespace SensorsConstants{
+
+    const int topMicroSwitchDIO = 0;
+    const int bottomMicroSwitchDIO = 1;
+}
 
 namespace JoystickConstants {
 
@@ -46,5 +50,22 @@ namespace JoystickConstants {
     const int buttonRT = 8;
     const int buttonBACK = 9;
     const int buttonSTART = 10;
+
+}
+
+namespace ClawConstants{
+
+    const double forwardSlidePercent = 0.6;
+    const double returnSlidePercent = -0.6;
+
+}
+
+namespace ArmConstants{
+
+    const double armPercentConstrain = 0.6;
+    const double amrKeepUp = 0.05;
+    const double armPercentUp = 0.6;
+    const double armPercentDown = -0.5;
+    const double operatorArmDeadBand = 0.5;
 
 }

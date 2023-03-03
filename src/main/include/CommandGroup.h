@@ -6,6 +6,8 @@
 //Sistemas do robô
 #include "Pneumatic.h"
 #include "Drive.h"
+#include "Arm.h"
+#include "Claw.h"
 
 class CommandGroup {
 
@@ -16,7 +18,9 @@ class CommandGroup {
 
         Pneumatics RobotPneumatic;
         Drivetrain RobotDrive;
-
+        Arm RobotArm;
+        Claw RobotClaw;
+        
         void InitAutoCommands();
         void InitCommands();
         void PeriodicCommands();

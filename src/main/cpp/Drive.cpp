@@ -64,12 +64,12 @@ void Drivetrain::DriveInit(){
     motorsRight.SetInverted(true); //inverte 
     drivetrain.CurvatureDrive(0.0, 0.0, true); //movimentação em curvas
 
-    double ySpeed = 0.0;
-    double zRotation = 0.0;
-    double yAxisJoy = 0.0;
-    double zAxisJoy = 0.0;
-    int direction = 1;  
-    double percentSpeed = DriveTrainConstants::standardPercentSpeed;
-    double percentRotation = DriveTrainConstants::standardPercentRotation;  
+    ySpeed = 0.0;
+    zRotation = 0.0;
+    yAxisJoy = 0.0;
+    zAxisJoy = 0.0;
+    direction = 1;  
+    percentSpeed = DriveTrainConstants::standardPercentSpeed;
+    percentRotation = DriveTrainConstants::standardPercentRotation;  
 
 }
