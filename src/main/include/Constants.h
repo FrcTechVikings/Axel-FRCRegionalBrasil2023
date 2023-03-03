@@ -36,6 +36,8 @@ namespace SensorsConstants{
 
     const int topMicroSwitchDIO = 0;
     const int bottomMicroSwitchDIO = 1;
+    const int frontMicroSwitchDIO = 2;
+    const int rearMicroSwitchDIO = 3;
 }
 
 namespace JoystickConstants {

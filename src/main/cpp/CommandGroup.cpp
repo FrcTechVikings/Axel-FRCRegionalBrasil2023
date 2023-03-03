@@ -108,7 +108,21 @@ void CommandGroup::OperatorCommands(){
     if(operatorStick.GetRawButtonPressed(JoystickConstants::buttonA)){
 
         RobotArm.ArmSwitchDown();
-        
+
+    }
+
+    if(operatorStick.GetRawButton(JoystickConstants::buttonRB)){
+
+        RobotClaw.ClawSlideForward(safeLock, ClawConstants::forwardSlidePercent);
+
+    }else if(operatorStick.GetRawButton(JoystickConstants::buttonLB)){
+
+        RobotClaw.ClawSlideReturn(safeLock, ClawConstants::returnSlidePercent);
+
+    }else {
+
+        RobotClaw.ClawStop();
+
     }
 
 }
