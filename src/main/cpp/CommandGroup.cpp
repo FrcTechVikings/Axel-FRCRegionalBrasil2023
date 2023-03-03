@@ -6,6 +6,8 @@ void CommandGroup::InitCommands(){
 
     RobotDrive.DriveInit();
     RobotPneumatic.Init();
+    RobotArm.ArmInit();
+    RobotClaw.ClawInit();
 
     safeLock = 1;
     estadoCompressor = 0;
@@ -15,7 +17,8 @@ void CommandGroup::InitCommands(){
 void CommandGroup::PeriodicCommands(){                                   
 
     RobotDrive.Drive(pilotStick.GetY(), pilotStick.GetZ(), safeLock);
-
+    RobotArm.ArmPeriodic(safeLock, operatorStick.GetY());
+    
 } 
 
 void CommandGroup::PilotCommands(){
@@ -91,11 +94,30 @@ void CommandGroup::OperatorCommands(){
 
     }
 
+    if(operatorStick.GetRawButtonPressed(JoystickConstants::buttonSTART)){
+
+        RobotArm.armControlDirection = 0;
+
+    } 
+
+    if(operatorStick.GetRawButtonPressed(JoystickConstants::buttonY)){
+
+        RobotArm.ArmSwitchUp();
+    }
+
+    if(operatorStick.GetRawButtonPressed(JoystickConstants::buttonA)){
+
+        RobotArm.ArmSwitchDown();
+        
+    }
+
 }
 
 void CommandGroup::Log(){
 
     RobotDrive.DriveLog();
     RobotPneumatic.PneumaticLog();
+    RobotArm.ArmLog();
+    RobotClaw.ClawLog();
 
 }
