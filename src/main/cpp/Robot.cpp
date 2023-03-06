@@ -53,9 +53,17 @@ void Robot::DisabledInit() {
 
 void Robot::DisabledPeriodic() {}
 
-void Robot::TestInit() {}
+void Robot::TestInit() {
 
-void Robot::TestPeriodic() {}
+  RobotCommands.InitCommands();
+
+}
+
+void Robot::TestPeriodic() {
+
+  RobotCommands.Teste();
+
+}
 
 #ifndef RUNNING_FRC_TESTS
 int main() {

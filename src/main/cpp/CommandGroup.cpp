@@ -16,7 +16,7 @@ void CommandGroup::InitCommands(){
 void CommandGroup::PeriodicCommands(){                                   
 
     RobotDrive.Drive(pilotStick.GetY(), pilotStick.GetZ(), safeLock);
-    RobotArm.ArmPeriodic(safeLock, operatorStick.GetY());
+    //RobotArm.ArmPeriodic(safeLock, operatorStick.GetY());
     
 } 
 
@@ -44,7 +44,7 @@ void CommandGroup::PilotCommands(){
         RobotDrive.DriveSpeedMax();
     }
 
-    if(pilotStick.GetRawButtonPressed(JoystickConstants::buttonLB)){
+    if(pilotStick.GetRawButtonPressed(JoystickConstants::buttonLT)){
 
         RobotDrive.DriveSpeedStandard();
 
@@ -110,11 +110,11 @@ void CommandGroup::OperatorCommands(){
 
     }
 
-    if(operatorStick.GetRawButton(JoystickConstants::buttonRB)){
+    if(operatorStick.GetRawButton(JoystickConstants::buttonRT)){
 
         RobotClaw.ClawSlideForward(safeLock, ClawConstants::forwardSlidePercent);
 
-    }else if(operatorStick.GetRawButton(JoystickConstants::buttonLB)){
+    }else if(operatorStick.GetRawButton(JoystickConstants::buttonLT)){
 
         RobotClaw.ClawSlideReturn(safeLock, ClawConstants::returnSlidePercent);
 
@@ -131,5 +131,11 @@ void CommandGroup::Log(){
     RobotDrive.DriveLog();
     RobotArm.ArmLog();
     RobotClaw.ClawLog();
+
+}
+
+void CommandGroup::Teste(){
+
+    PeriodicCommands();
 
 }

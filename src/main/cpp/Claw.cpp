@@ -4,7 +4,7 @@ void Claw::ClawLog(){}
 
 void Claw::ClawSlideForward(bool lock, double percent){
 
-     if(frontLimitSwitch.Get() == false){
+     /*if(frontLimitSwitch.Get() == false){
 
         ClawSlowLeft.Set(ControlMode::PercentOutput, -1*percent*lock);
         ClawSlowRight.Set(ControlMode::PercentOutput, percent*lock);  
@@ -14,12 +14,15 @@ void Claw::ClawSlideForward(bool lock, double percent){
         ClawSlowLeft.Set(ControlMode::PercentOutput, 0);
         ClawSlowRight.Set(ControlMode::PercentOutput, 0);
 
-    }
+    }*/
+
+    ClawSlowLeft.Set(ControlMode::PercentOutput, percent*lock);
+    ClawSlowRight.Set(ControlMode::PercentOutput, percent*lock);  
 }
 
 void Claw::ClawSlideReturn(bool lock, double percent){
 
-    if(rearLimitSwitch.Get() == false){
+    /*if(rearLimitSwitch.Get() == false){
 
         ClawSlowLeft.Set(ControlMode::PercentOutput, -1*percent*lock);
         ClawSlowRight.Set(ControlMode::PercentOutput, percent*lock);  
@@ -29,7 +32,11 @@ void Claw::ClawSlideReturn(bool lock, double percent){
         ClawSlowLeft.Set(ControlMode::PercentOutput, 0);
         ClawSlowRight.Set(ControlMode::PercentOutput, 0);
 
-    }
+    }*/
+
+    ClawSlowLeft.Set(ControlMode::PercentOutput, percent*lock);
+    ClawSlowRight.Set(ControlMode::PercentOutput, percent*lock);  
+
 }
 
 void Claw::ClawStop(){

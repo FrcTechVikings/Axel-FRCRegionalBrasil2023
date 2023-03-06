@@ -16,7 +16,7 @@ class Drivetrain {
         WPI_VictorSPX frontRight = {MotorsConstants::frontRightCIN};
 
         frc::MotorControllerGroup motorsRight{rearRight, frontRight};
-        frc::MotorControllerGroup motorsLeft{rearLeft, rearRight};
+        frc::MotorControllerGroup motorsLeft{rearLeft, frontLeft};
         
         frc::DifferentialDrive drivetrain{motorsLeft, motorsRight};
 

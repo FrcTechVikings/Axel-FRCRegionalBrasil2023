@@ -26,6 +26,8 @@ class CommandGroup {
         void OperatorCommands();
         void Log();
 
+        void Teste();
+
     private:
 
         bool safeLock = 1;

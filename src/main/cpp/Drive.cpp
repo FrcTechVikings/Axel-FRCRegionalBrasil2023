@@ -7,8 +7,8 @@ void Drivetrain::Drive(double yAxis, double zAxis, bool lock){
     yAxisJoy = (0.5*pow(yAxis,3) + (0.5*yAxis));
     zAxisJoy = zAxis;
 
-    ySpeed = yAxisJoy*direction*lock*percentSpeed*(-1); 
-    zRotation = zAxisJoy*lock*percentRotation;
+    ySpeed = yAxisJoy*direction*lock*percentSpeed; 
+    zRotation = zAxisJoy*lock*percentRotation*-1;
     drivetrain.CurvatureDrive(ySpeed,zRotation,true);
     
 }

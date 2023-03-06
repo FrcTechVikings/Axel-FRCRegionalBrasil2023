@@ -32,5 +32,4 @@ class Robot : public frc::TimedRobot {
 
     CommandGroup RobotCommands;
 
-
 };
