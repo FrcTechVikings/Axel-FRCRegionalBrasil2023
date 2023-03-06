@@ -3,7 +3,9 @@
 #include "ctre/Phoenix.h"
 #include "Constants.h"
 #include <frc/DigitalInput.h>
-#include <frc/smartdashboard/SmartDashboard.h>  
+#include <frc/DoubleSolenoid.h>
+#include <frc/Compressor.h>
+#include <frc/smartdashboard/SmartDashboard.h> 
 
 class Claw {
 
@@ -20,7 +22,13 @@ class Claw {
         void ClawSlideReturn(bool lock, double percent);
         void ClawStop();
         void ClawInit();
+        void EnableCompressor();
+        void DisableCompressor();
+        void AtivaSolenoide();
 
     private:
+
+        frc::Compressor comp {0, frc::PneumaticsModuleType::CTREPCM};
+        frc::DoubleSolenoid solenoid{frc::PneumaticsModuleType::CTREPCM, 0, 1};
 
 };

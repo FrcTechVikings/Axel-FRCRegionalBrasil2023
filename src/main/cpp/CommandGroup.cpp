@@ -5,7 +5,6 @@ void CommandGroup::InitAutoCommands(){}
 void CommandGroup::InitCommands(){
 
     RobotDrive.DriveInit();
-    RobotPneumatic.Init();
     RobotArm.ArmInit();
     RobotClaw.ClawInit();
 
@@ -71,26 +70,26 @@ void CommandGroup::OperatorCommands(){
 
         if(estadoCompressor == 0){
 
-            RobotPneumatic.EnableCompressor();
+            RobotClaw.EnableCompressor();
             estadoCompressor = 1;
 
        } else {
 
-            RobotPneumatic.DisableCompressor();
+            RobotClaw.DisableCompressor();
             estadoCompressor = 0;
 
        }
 
     }else if(safeLock == 0 && estadoCompressor == 1){
 
-        RobotPneumatic.DisableCompressor();
+        RobotClaw.DisableCompressor();
         estadoCompressor = 0;
 
     }
 
     if(operatorStick.GetRawButtonPressed(JoystickConstants::buttonX) && safeLock == 1){
 
-        RobotPneumatic.AtivaSolenoide();
+        RobotClaw.AtivaSolenoide();
 
     }
 
@@ -130,7 +129,6 @@ void CommandGroup::OperatorCommands(){
 void CommandGroup::Log(){
 
     RobotDrive.DriveLog();
-    RobotPneumatic.PneumaticLog();
     RobotArm.ArmLog();
     RobotClaw.ClawLog();
 

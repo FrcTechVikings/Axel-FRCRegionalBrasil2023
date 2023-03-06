@@ -4,7 +4,6 @@
 #include "Constants.h"
 
 //Sistemas do robô
-#include "Pneumatic.h"
 #include "Drive.h"
 #include "Arm.h"
 #include "Claw.h"
@@ -16,7 +15,6 @@ class CommandGroup {
         frc::Joystick pilotStick {0};
         frc::Joystick operatorStick {1};
 
-        Pneumatics RobotPneumatic;
         Drivetrain RobotDrive;
         Arm RobotArm;
         Claw RobotClaw;
