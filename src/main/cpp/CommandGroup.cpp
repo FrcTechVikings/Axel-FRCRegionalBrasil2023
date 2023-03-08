@@ -1,6 +1,15 @@
 #include "CommandGroup.h"
 
-void CommandGroup::InitAutoCommands(){}
+void CommandGroup::InitAutoCommands(){
+
+    RobotDrive.DriveInit();
+    RobotArm.ArmInit();
+    RobotClaw.ClawInit();
+
+    safeLock = 1;
+    estadoCompressor = 1;
+
+}
 
 void CommandGroup::InitCommands(){
 
