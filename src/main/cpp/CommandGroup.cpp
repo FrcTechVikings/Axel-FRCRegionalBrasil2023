@@ -34,6 +34,12 @@ void CommandGroup::PilotCommands(){
     if(pilotStick.GetRawButtonPressed(JoystickConstants::buttonBACK)){
         
         safeLock = !safeLock;
+
+        if(safeLock == 1){
+
+            RobotClaw.EnableCompressor();
+
+        }
         
     }
 
@@ -78,6 +84,12 @@ void CommandGroup::OperatorCommands(){
     if(operatorStick.GetRawButtonPressed(JoystickConstants::buttonBACK)){
         
         safeLock = !safeLock;
+
+        if(safeLock == 1){
+
+            RobotClaw.EnableCompressor();
+
+        }
         
     }
 
