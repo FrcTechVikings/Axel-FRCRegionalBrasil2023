@@ -16,10 +16,13 @@ class Arm {
         
         void ArmLog();
         void ArmFeed(bool lock, double percent);
+        void ArmStandardSpeed();
+        void ArmMaxSpeed();
         void ArmInit();
     
     private:
 
         double operatorStickValue = 0.0;
+        double armPercent = ArmConstants::armPercentConstrain;
 
 };

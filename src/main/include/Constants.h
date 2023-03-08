@@ -17,7 +17,7 @@ namespace DriveTrainConstants {
     const double minRotationPercentConstrain = 0.05; // Porcentagem
     const double standardPercentSpeed = 0.6; // Porcentagem
     const double standardPercentRotation = 0.45; // Porcentagem
-    const double slowTurnPercentRotation = 0.3; // Porcentagem
+    const double slowTurnPercentRotation = 0.2; // Porcentagem
     
 }
 
@@ -70,9 +70,7 @@ namespace ClawConstants{
 namespace ArmConstants{
 
     const double armPercentConstrain = 0.6; // Porcentagem
-    //const double amrKeepUp = 0.05; // Porcentagem
-    const double armPercentUp = 0.6; // Porcentagem
-    const double armPercentDown = -0.5; // Porcentagem
+    const double armPercentMax = 1;
     const double operatorArmDeadBand = 0.5; // Porcentagem
 
 }

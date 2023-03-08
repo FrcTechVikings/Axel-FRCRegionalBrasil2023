@@ -13,9 +13,9 @@ void Claw::ClawLog(){
 
 void Claw::ClawSlideForward(bool lock, double percent){
 
-     /*if(frontLimitSwitch.Get() == false){
+     if(frontLimitSwitch.Get() == false){
 
-        ClawSlowLeft.Set(ControlMode::PercentOutput, -1*percent*lock);
+        ClawSlowLeft.Set(ControlMode::PercentOutput, percent*lock);
         ClawSlowRight.Set(ControlMode::PercentOutput, percent*lock);  
          
     }else {
@@ -23,17 +23,15 @@ void Claw::ClawSlideForward(bool lock, double percent){
         ClawSlowLeft.Set(ControlMode::PercentOutput, 0);
         ClawSlowRight.Set(ControlMode::PercentOutput, 0);
 
-    }*/
+    }
 
-    ClawSlowLeft.Set(ControlMode::PercentOutput, percent*lock);
-    ClawSlowRight.Set(ControlMode::PercentOutput, percent*lock);  
 }
 
 void Claw::ClawSlideReturn(bool lock, double percent){
 
     if(rearLimitSwitch.Get() == false){
 
-        ClawSlowLeft.Set(ControlMode::PercentOutput, -1*percent*lock);
+        ClawSlowLeft.Set(ControlMode::PercentOutput, percent*lock);
         ClawSlowRight.Set(ControlMode::PercentOutput, percent*lock);  
          
     }else {
@@ -59,7 +57,7 @@ void Claw::ClawInit(){
     ClawSlowRight.SetNeutralMode(NeutralMode::Brake);
     ClawSlowLeft.SetNeutralMode(NeutralMode::Brake);
 
-    solenoid.Set(frc::DoubleSolenoid::Value::kReverse);
+    solenoid.Set(frc::DoubleSolenoid::Value::kForward);
     comp.EnableDigital();
 
     ClawSlowRight.SetSafetyEnabled(true);

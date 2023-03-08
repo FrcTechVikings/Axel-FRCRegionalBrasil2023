@@ -122,6 +122,18 @@ void CommandGroup::OperatorCommands(){
 
     }
 
+    if(operatorStick.GetRawButtonPressed(JoystickConstants::buttonY) && safeLock == 1){
+
+        RobotArm.ArmMaxSpeed();
+
+    }
+
+    if(operatorStick.GetRawButtonPressed(JoystickConstants::buttonA) && safeLock == 1){
+
+        RobotArm.ArmStandardSpeed();
+
+    }
+
 }
 
 void CommandGroup::Log(){

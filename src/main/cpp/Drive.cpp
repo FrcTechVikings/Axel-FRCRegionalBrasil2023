@@ -12,7 +12,7 @@ void Drivetrain::DriveLog(){
     frc::SmartDashboard::PutNumber("Nível de Velocidade", round(percentSpeed * 10));
     frc::SmartDashboard::PutNumber("percentRotation", percentRotation);
     frc::SmartDashboard::PutNumber("percentRotationTemp", percentRotationTemp);
-    frc::SmartDashboard::PutNumber("estadoSlowTurn", estadoSlowTurn);
+    frc::SmartDashboard::PutBoolean("Estado B", estadoSlowTurn);
     frc::SmartDashboard::PutNumber("Encoder esquerdo metros", leftDriveEncoder.GetDistance());
     frc::SmartDashboard::PutNumber("Encoder direito metros", rightDriveEconder.GetDistance());
     frc::SmartDashboard::PutNumber("Média dos encoders", GetDistanceEncoder());

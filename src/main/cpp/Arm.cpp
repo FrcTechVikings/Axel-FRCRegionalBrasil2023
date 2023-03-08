@@ -13,22 +13,23 @@ void Arm::ArmFeed(bool lock, double percent){
 
     if(percent > ArmConstants::operatorArmDeadBand || percent < -1*ArmConstants::operatorArmDeadBand){
 
-        operatorStickValue = -1*percent*lock*ArmConstants::armPercentConstrain; //se o motor estiver invertido *-1
+        operatorStickValue = -1*percent*lock*armPercent; //se o motor estiver invertido *-1
              
     }else {
 
-        //operatorStickValue = ArmConstants::amrKeepUp;
         operatorStickValue = 0;
 
     }
 
-    if(topLimitSwitch.Get()){
+    if(topLimitSwitch.Get() && operatorStickValue > 0){
 
-        operatorStickValue = abs(operatorStickValue);
+        operatorStickValue = 0;
 
-    }else if(bottomLimitSwitch.Get()){
+    }
 
-        operatorStickValue = -abs(operatorStickValue);
+    if(bottomLimitSwitch.Get() && operatorStickValue < 0){
+
+        operatorStickValue = 0;
 
     }
 
@@ -43,5 +44,17 @@ void Arm::ArmInit(){
 
     ArmRedLine.SetSafetyEnabled(true);
     ArmRedLine.SetExpiration(100_ms);
+
+}
+
+void Arm::ArmStandardSpeed(){
+
+    armPercent = ArmConstants::armPercentConstrain;
+
+}
+
+void Arm::ArmMaxSpeed() {
+
+    armPercent = ArmConstants::armPercentMax;
 
 }
