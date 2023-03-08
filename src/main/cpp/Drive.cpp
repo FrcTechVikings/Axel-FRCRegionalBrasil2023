@@ -13,6 +13,9 @@ void Drivetrain::DriveLog(){
     frc::SmartDashboard::PutNumber("percentRotation", percentRotation);
     frc::SmartDashboard::PutNumber("percentRotationTemp", percentRotationTemp);
     frc::SmartDashboard::PutNumber("estadoSlowTurn", estadoSlowTurn);
+    frc::SmartDashboard::PutNumber("Encoder esquerdo metros", leftDriveEncoder.GetDistance());
+    frc::SmartDashboard::PutNumber("Encoder direito metros", rightDriveEconder.GetDistance());
+    frc::SmartDashboard::PutNumber("Média dos encoders", GetDistanceEncoder());
     
 }
 
@@ -78,6 +81,12 @@ void Drivetrain::DriveInit(){
     motorsRight.SetInverted(true); //inverte 
     drivetrain.CurvatureDrive(0.0, 0.0, true); //movimentação em curvas
 
+    leftDriveEncoder.SetDistancePerPulse(RobotConstants::wheelLenghtMeters/2048.0); // In meters
+    rightDriveEconder.SetDistancePerPulse(RobotConstants::wheelLenghtMeters/2048.0); // In meters
+
+    leftDriveEncoder.Reset();
+    rightDriveEconder.Reset();
+
     ySpeed = 0.0;
     zRotation = 0.0;
     yAxisJoy = 0.0;
@@ -105,5 +114,23 @@ void Drivetrain::DriveSlowTurn(){
         
     }
 
+}
+
+void Drivetrain::ResetEnconder(){
+
+    leftDriveEncoder.Reset();
+    rightDriveEconder.Reset();
+
+}
+
+double Drivetrain::GetDistanceEncoder(){
+
+    double left = leftDriveEncoder.GetDistance();
+    double right = rightDriveEconder.GetDistance();
+
+    if(left < 0) left *= -1;
+    if(right < 0) right *= -1;
+
+    return ((left + right)/2);
 
 }

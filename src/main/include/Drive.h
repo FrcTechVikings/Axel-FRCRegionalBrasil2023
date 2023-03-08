@@ -4,6 +4,7 @@
 #include <frc/drive/DifferentialDrive.h>
 #include <frc/motorcontrol/MotorControllerGroup.h>
 #include <frc/smartdashboard/SmartDashboard.h>
+#include <frc/Encoder.h>
 #include "Constants.h"
 
 class Drivetrain {
@@ -20,6 +21,9 @@ class Drivetrain {
         
         frc::DifferentialDrive drivetrain{motorsLeft, motorsRight};
 
+        frc::Encoder leftDriveEncoder {SensorsConstants::leftDriveEncoderAChannel, SensorsConstants::leftDriveEncoderBChannel};
+        frc::Encoder rightDriveEconder {SensorsConstants::rightDriveEncoderAChannel, SensorsConstants::rightDriveEncoderBChannel, true};
+
         void DriveLog();
         void Drive(double yAxis, double zAxis, bool lock);
         void DriveSpeedChange(int proportion, double gain);
@@ -28,6 +32,8 @@ class Drivetrain {
         void DriveDirection();
         void DriveInit();
         void DriveSlowTurn();
+        void ResetEnconder();
+        double GetDistanceEncoder();
 
     private:
 

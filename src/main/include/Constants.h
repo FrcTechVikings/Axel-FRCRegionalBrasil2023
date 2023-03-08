@@ -35,6 +35,10 @@ namespace MotorsConstants {
 
 namespace SensorsConstants{
 
+    const int rightDriveEncoderAChannel = 0; // ID
+    const int rightDriveEncoderBChannel = 1; // ID
+    const int leftDriveEncoderAChannel = 2; // ID
+    const int leftDriveEncoderBChannel = 3; // ID
     const int topMicroSwitchDIO = 4; // ID
     const int bottomMicroSwitchDIO = 5; // ID
     const int rearMicroSwitchDIO = 6; // ID
