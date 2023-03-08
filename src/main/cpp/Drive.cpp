@@ -71,5 +71,25 @@ void Drivetrain::DriveInit(){
     direction = 1;  
     percentSpeed = DriveTrainConstants::standardPercentSpeed;
     percentRotation = DriveTrainConstants::standardPercentRotation;  
+    percentRotationTemp = percentRotation;
+    estadoSlowTurn = 0;
+
+}
+
+void Drivetrain::DriveSlowTurn(){
+
+    if(estadoSlowTurn == 0){
+
+        percentRotationTemp = percentRotation;
+        percentRotation = DriveTrainConstants::slowTurnPercentRotation;
+        estadoSlowTurn = 1;
+
+    } else {
+
+        percentRotation = percentRotationTemp;
+        estadoSlowTurn = 0;
+        
+    }
+
 
 }

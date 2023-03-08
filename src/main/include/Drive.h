@@ -27,6 +27,7 @@ class Drivetrain {
         void DriveSpeedStandard();
         void DriveDirection();
         void DriveInit();
+        void DriveSlowTurn();
 
     private:
 
@@ -37,5 +38,7 @@ class Drivetrain {
         int direction = 1;
         double percentSpeed = DriveTrainConstants::standardPercentSpeed;
         double percentRotation = DriveTrainConstants::standardPercentRotation;
+        double percentRotationTemp = percentRotation;
+        bool estadoSlowTurn = 0;
         
 };

@@ -50,8 +50,8 @@ void Claw::ClawInit(){
     ClawSlowRight.SetNeutralMode(NeutralMode::Brake);
     ClawSlowLeft.SetNeutralMode(NeutralMode::Brake);
 
-    solenoid.Set(frc::DoubleSolenoid::Value::kForward);
-    comp.Disable();
+    solenoid.Set(frc::DoubleSolenoid::Value::kReverse);
+    comp.EnableDigital();
 
     ClawSlowRight.SetSafetyEnabled(true);
     ClawSlowRight.SetExpiration(100_ms);
@@ -73,8 +73,8 @@ void Claw::DisableCompressor(){
 
 }
 
-void Claw::AtivaSolenoide(){
+void Claw::AtivarSolenoide(){
 
-   solenoid.Toggle(); //Troca o estado
+    solenoid.Toggle();
     
 }

@@ -31,6 +31,6 @@ class CommandGroup {
     private:
 
         bool safeLock = 1;
-        bool estadoCompressor = 0;
+        bool estadoCompressor = 1;
 
 };

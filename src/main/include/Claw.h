@@ -24,7 +24,7 @@ class Claw {
         void ClawInit();
         void EnableCompressor();
         void DisableCompressor();
-        void AtivaSolenoide();
+        void AtivarSolenoide();
 
     private:
 

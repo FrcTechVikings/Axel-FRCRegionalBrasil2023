@@ -13,14 +13,9 @@ class Arm {
 
         frc::DigitalInput topLimitSwitch {SensorsConstants::topMicroSwitchDIO};
         frc::DigitalInput bottomLimitSwitch {SensorsConstants::bottomMicroSwitchDIO};
-
-        int armControlDirection = 0;
         
         void ArmLog();
         void ArmFeed(bool lock, double percent);
-        void ArmSwitchUp();
-        void ArmSwitchDown();
-        void ArmPeriodic(bool lock, double JoyAxisY); //ele vai analisar quem vai controlar 
         void ArmInit();
     
     private:
