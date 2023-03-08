@@ -1,6 +1,13 @@
 #include "Arm.h"
 
-void Arm::ArmLog(){}
+void Arm::ArmLog(){
+
+    frc::SmartDashboard::PutNumber("OperatorStickValue", operatorStickValue);
+    frc::SmartDashboard::PutNumber("topLimitSwitch", topLimitSwitch.Get());
+    frc::SmartDashboard::PutNumber("bottomLimitSwitch", bottomLimitSwitch.Get());
+    frc::SmartDashboard::PutNumber("ArmRedLine", ArmRedLine.GetBusVoltage());
+
+}
 
 void Arm::ArmFeed(bool lock, double percent){
 

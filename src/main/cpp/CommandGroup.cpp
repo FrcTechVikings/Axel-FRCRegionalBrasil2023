@@ -121,6 +121,12 @@ void CommandGroup::Log(){
     RobotArm.ArmLog();
     RobotClaw.ClawLog();
 
+    frc::SmartDashboard::PutNumber("Piloto JoyY", pilotStick.GetY());
+    frc::SmartDashboard::PutNumber("Piloto JoyZ", pilotStick.GetZ());
+    frc::SmartDashboard::PutNumber("Operador JoyY", operatorStick.GetY());
+
+    frc::SmartDashboard::PutBoolean("SafeLock", safeLock);
+
 }
 
 void CommandGroup::Teste(){

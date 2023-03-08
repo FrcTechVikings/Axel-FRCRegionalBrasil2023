@@ -35,10 +35,10 @@ namespace MotorsConstants {
 
 namespace SensorsConstants{
 
-    const int topMicroSwitchDIO = 0; // ID
-    const int bottomMicroSwitchDIO = 1; // ID
-    const int frontMicroSwitchDIO = 2; // ID
-    const int rearMicroSwitchDIO = 3; // ID
+    const int topMicroSwitchDIO = 4; // ID
+    const int bottomMicroSwitchDIO = 5; // ID
+    const int rearMicroSwitchDIO = 6; // ID
+    const int frontMicroSwitchDIO = 7; // ID
 }
 
 namespace JoystickConstants {

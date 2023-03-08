@@ -1,6 +1,20 @@
 #include "Drive.h"
 
-void Drivetrain::DriveLog(){}
+void Drivetrain::DriveLog(){
+
+    frc::SmartDashboard::PutNumber("MotorRight", motorsRight.Get());
+    frc::SmartDashboard::PutNumber("MotorLeft", motorsLeft.Get());
+    frc::SmartDashboard::PutNumber("ySpeed", ySpeed);
+    frc::SmartDashboard::PutNumber("zRotation", zRotation);
+    frc::SmartDashboard::PutNumber("yAxisJoy", yAxisJoy);
+    frc::SmartDashboard::PutNumber("zAxisJoy", zAxisJoy);
+    frc::SmartDashboard::PutNumber("direction", direction);
+    frc::SmartDashboard::PutNumber("Nível de Velocidade", round(percentSpeed * 10));
+    frc::SmartDashboard::PutNumber("percentRotation", percentRotation);
+    frc::SmartDashboard::PutNumber("percentRotationTemp", percentRotationTemp);
+    frc::SmartDashboard::PutNumber("estadoSlowTurn", estadoSlowTurn);
+    
+}
 
 void Drivetrain::Drive(double yAxis, double zAxis, bool lock){
 
