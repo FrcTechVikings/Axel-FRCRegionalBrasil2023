@@ -8,6 +8,8 @@ void CommandGroup::InitAutoCommands(){
     RobotDrive.rearRight.SetNeutralMode(NeutralMode::Brake);
 
     RobotDrive.ResetEnconder();
+
+    executeOnce = 0;
     
     autoTimer.Reset();
     autoTimer.Start();
@@ -30,7 +32,7 @@ void CommandGroup::AutoPrincipal(double delay_s, double distPontuacao_m, double 
 
         if(RobotDrive.GetDistanceEncoder() <= distPontuacao_m){
 
-            RobotDrive.Drive(0.3, 0.0, 1);
+            RobotDrive.Drive(-0.6, 0.0, 1);
 
         } else {
 
@@ -40,18 +42,24 @@ void CommandGroup::AutoPrincipal(double delay_s, double distPontuacao_m, double 
 
     } else if (autoTimer.Get().value() <= AutoConstants::lowerArm + delay_s){
 
-        RobotArm.ArmFeed(1, -0.6);
+        RobotDrive.ResetEnconder();
+        RobotArm.ArmFeed(1, 1);
         RobotDrive.Drive(0.0, 0.0, 1);
 
     } else if(autoTimer.Get().value() <= AutoConstants::releaseGamePiece + delay_s){
 
         RobotArm.ArmFeed(1, 0.0);
         RobotDrive.Drive(0.0, 0.0, 1);
-        RobotClaw.AtivarSolenoide();
+        if(executeOnce == 0){
+
+            RobotClaw.AtivarSolenoide();
+            executeOnce = 1;
+
+        }
 
     } else if (autoTimer.Get().value() <= AutoConstants::higherArm + delay_s){
 
-        RobotArm.ArmFeed(1, 0.6);
+        RobotArm.ArmFeed(1, -1);
         RobotDrive.Drive(0.0 , 0.0, 1);
 
     } else if (autoTimer.Get().value() <= AutoConstants::returnBack + delay_s){
@@ -60,7 +68,7 @@ void CommandGroup::AutoPrincipal(double delay_s, double distPontuacao_m, double 
         
         if(RobotDrive.GetDistanceEncoder() <= distSaida_m){
 
-            RobotDrive.Drive(-0.3, 0.0, 1);
+            RobotDrive.Drive(0.9, 0.0, 1);
 
         } else {
 

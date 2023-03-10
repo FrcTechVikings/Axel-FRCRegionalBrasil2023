@@ -35,5 +35,6 @@ class CommandGroup {
         bool safeLock = 1;
         bool estadoCompressor = 1;
         frc::Timer autoTimer;
+        bool executeOnce = 0;
 
 };

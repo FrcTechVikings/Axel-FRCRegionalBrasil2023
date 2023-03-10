@@ -5,12 +5,12 @@ namespace AutoConstants{
     const std::string AutoPrincipal = "Autônomo Principal";
     const std::string SemAuto = "Nenhum Autônomo";
 
-    const double configInicial = 0.2; // Seconds
-    const double initialDriveForward = 2.0; // Seconds
-    const double lowerArm = 3.5; // Seconds
-    const double releaseGamePiece = 4.0; // Seconds
-    const double higherArm = 5.5; // Seconds
-    const double returnBack = 10.5; // Seconds
+    const double configInicial = 0.0; // Seconds
+    const double initialDriveForward = 3.0; // Seconds
+    const double lowerArm = 5; // Seconds
+    const double releaseGamePiece = 5.5; // Seconds
+    const double higherArm = 7.5; // Seconds
+    const double returnBack = 15; // Seconds
 
 }
 
@@ -29,7 +29,7 @@ namespace DriveTrainConstants {
     const double minRotationPercentConstrain = 0.05; // Porcentagem
     const double standardPercentSpeed = 0.6; // Porcentagem
     const double standardPercentRotation = 0.45; // Porcentagem
-    const double slowTurnPercentRotation = 0.2; // Porcentagem
+    const double slowTurnPercentRotation = 0.25; // Porcentagem
     
 }
 
