@@ -8,6 +8,8 @@
 #include <string>
 #include <frc/smartdashboard/SendableChooser.h>
 
+#include "cameraserver/CameraServer.h"
+
 #include "CommandGroup.h"
 
 class Robot : public frc::TimedRobot {
@@ -31,5 +33,9 @@ class Robot : public frc::TimedRobot {
     std::string m_autoSelected;
 
     CommandGroup RobotCommands;
+
+    cs::UsbCamera camera;
+    cs::CvSink *cvsink;
+    cs::VideoSink server;
 
 };

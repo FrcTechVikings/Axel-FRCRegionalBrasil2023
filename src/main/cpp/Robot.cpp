@@ -15,6 +15,22 @@ void Robot::RobotInit() {
 
   RobotCommands.InitCommands();
 
+  // Camera
+
+  camera.SetResolution(640,480);
+  camera.SetFPS(30);
+  camera = frc::CameraServer::StartAutomaticCapture(0);
+
+  server = frc::CameraServer::GetServer();
+
+  server.SetSource(camera);
+
+  //cvsink = frc::CameraServer::GetVideo();
+
+  //cvsink = new cs::CvSink("cam1cv");
+  //cvsink->SetSource(camera);
+  //cvsink->SetEnabled(true);
+
 }
 
 void Robot::RobotPeriodic() {}
