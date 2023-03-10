@@ -1,6 +1,18 @@
 #pragma once
 
-namespace AutoConstants{}
+namespace AutoConstants{
+
+    const std::string AutoPrincipal = "Autônomo Principal";
+    const std::string SemAuto = "Nenhum Autônomo";
+
+    const double configInicial = 0.2; // Seconds
+    const double initialDriveForward = 2.0; // Seconds
+    const double lowerArm = 3.5; // Seconds
+    const double releaseGamePiece = 4.0; // Seconds
+    const double higherArm = 5.5; // Seconds
+    const double returnBack = 10.5; // Seconds
+
+}
 
 namespace RobotConstants{
 

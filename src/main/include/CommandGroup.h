@@ -20,6 +20,8 @@ class CommandGroup {
         Claw RobotClaw;
         
         void InitAutoCommands();
+        void AutoPrincipal(double delay_s, double distPontuacao_m, double distSaida_m);
+        void AutoNothing();
         void InitCommands();
         void PeriodicCommands();
         void PilotCommands();
@@ -32,5 +34,6 @@ class CommandGroup {
 
         bool safeLock = 1;
         bool estadoCompressor = 1;
+        frc::Timer autoTimer;
 
 };

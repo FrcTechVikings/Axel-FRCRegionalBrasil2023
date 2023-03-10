@@ -2,12 +2,87 @@
 
 void CommandGroup::InitAutoCommands(){
 
-    RobotDrive.DriveInit();
-    RobotArm.ArmInit();
-    RobotClaw.ClawInit();
+    RobotDrive.frontLeft.SetNeutralMode(NeutralMode::Brake);
+    RobotDrive.frontRight.SetNeutralMode(NeutralMode::Brake);
+    RobotDrive.rearLeft.SetNeutralMode(NeutralMode::Brake);
+    RobotDrive.rearRight.SetNeutralMode(NeutralMode::Brake);
 
-    safeLock = 1;
-    estadoCompressor = 1;
+    RobotDrive.ResetEnconder();
+    
+    autoTimer.Reset();
+    autoTimer.Start();
+
+}
+
+void CommandGroup::AutoPrincipal(double delay_s, double distPontuacao_m, double distSaida_m){
+
+    RobotClaw.ClawSlowLeft.Set(ControlMode::PercentOutput, 0.0);
+    RobotClaw.ClawSlowRight.Set(ControlMode::PercentOutput, 0.0);
+
+    if(autoTimer.Get().value() <= AutoConstants::configInicial + delay_s){
+
+        RobotArm.ArmFeed(1, 0.0);
+        RobotDrive.Drive(0.0, 0.0, 1);
+        
+    } else if (autoTimer.Get().value() <= AutoConstants::initialDriveForward + delay_s){
+
+        RobotArm.ArmFeed(1, 0.0);
+
+        if(RobotDrive.GetDistanceEncoder() <= distPontuacao_m){
+
+            RobotDrive.Drive(0.3, 0.0, 1);
+
+        } else {
+
+            RobotDrive.Drive(0.0, 0.0, 1);
+
+        }
+
+    } else if (autoTimer.Get().value() <= AutoConstants::lowerArm + delay_s){
+
+        RobotArm.ArmFeed(1, -0.6);
+        RobotDrive.Drive(0.0, 0.0, 1);
+
+    } else if(autoTimer.Get().value() <= AutoConstants::releaseGamePiece + delay_s){
+
+        RobotArm.ArmFeed(1, 0.0);
+        RobotDrive.Drive(0.0, 0.0, 1);
+        RobotClaw.AtivarSolenoide();
+
+    } else if (autoTimer.Get().value() <= AutoConstants::higherArm + delay_s){
+
+        RobotArm.ArmFeed(1, 0.6);
+        RobotDrive.Drive(0.0 , 0.0, 1);
+
+    } else if (autoTimer.Get().value() <= AutoConstants::returnBack + delay_s){
+
+        RobotArm.ArmFeed(1, 0.0);
+        
+        if(RobotDrive.GetDistanceEncoder() <= distSaida_m){
+
+            RobotDrive.Drive(-0.3, 0.0, 1);
+
+        } else {
+
+            RobotDrive.Drive(0.0, 0.0, 1);
+
+        }
+
+    } else {
+
+        RobotArm.ArmFeed(1, 0.0);
+        RobotDrive.Drive(0.0, 0.0, 1);
+
+    }
+
+}
+
+void CommandGroup::AutoNothing(){
+
+    RobotArm.ArmFeed(1, 0.0);
+    RobotDrive.Drive(0.0, 0.0, 1);
+    RobotClaw.ClawSlowLeft.Set(ControlMode::PercentOutput, 0.0);
+    RobotClaw.ClawSlowRight.Set(ControlMode::PercentOutput, 0.0);
 
 }
 
@@ -19,6 +94,10 @@ void CommandGroup::InitCommands(){
 
     safeLock = 1;
     estadoCompressor = 1;
+
+    frc::SmartDashboard::PutNumber("Distância Para Pontuação (metros)", 2.0);
+    frc::SmartDashboard::PutNumber("Distância de Retorno (metros)", 5.0);
+    frc::SmartDashboard::PutNumber("Delay (segundos)", 0.2);
 
 }
 

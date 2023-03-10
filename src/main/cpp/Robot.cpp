@@ -8,6 +8,11 @@
 
 void Robot::RobotInit() {
 
+  m_chooser.SetDefaultOption(AutoConstants::AutoPrincipal, AutoConstants::AutoPrincipal);
+  m_chooser.AddOption(AutoConstants::SemAuto, AutoConstants::SemAuto);
+
+  frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
+
   RobotCommands.InitCommands();
 
 }
@@ -16,16 +21,23 @@ void Robot::RobotPeriodic() {}
 
 void Robot::AutonomousInit() {
 
-  //RobotCommands.InitCommands();
   RobotCommands.InitAutoCommands();
+
+  m_autoSelected = m_chooser.GetSelected();
 
 }
 
 void Robot::AutonomousPeriodic() {
 
-  m_autoSelected = m_chooser.GetSelected();
+  if(m_autoSelected == AutoConstants::AutoPrincipal){
 
-  RobotCommands.InitAutoCommands();
+    RobotCommands.AutoPrincipal(frc::SmartDashboard::GetNumber("Delay (segundos)", 0.2), frc::SmartDashboard::GetNumber("Distância Para Pontuação (metros)", 2.0), frc::SmartDashboard::GetNumber("Distância de Retorno (metros)", 5.0));
+
+  }else{
+
+    RobotCommands.AutoNothing();
+
+  }
 
 }
 
